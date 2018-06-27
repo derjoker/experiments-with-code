@@ -35,6 +35,15 @@ for (let key of ["a", "b", "c", "d"]) {
   console.log(obj1[key], obj2[key], obj1[key] === obj2[key]);
 }
 
+Object.defineProperties(obj2, {
+  c: { value: "c4" },
+  d: { value: "d4" }
+});
+
+for (let key of ["a", "b", "c", "d"]) {
+  console.log(obj1[key], obj2[key], obj1[key] === obj2[key]);
+}
+
 // obj2从obj1来(Object.create)，即obj1在obj2的原型链上
 // 1. 操作obj1不会影响obj2，操作obj2不会影响obj1
-// 2. 原型链上(obj1)出现`writable: false` (c)或者setter (d)，该`property`在obj1和obj2上都不能被改变/赋值
+// 2. 原型链上(obj1)出现`writable: false` (c)或者setter (d)，该`property`在obj1和obj2上都不能被改变/赋值，但是可以通过defineProperty改变
