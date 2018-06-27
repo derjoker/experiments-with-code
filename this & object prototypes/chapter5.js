@@ -129,3 +129,9 @@ console.log(Bar.prototype); // undefined
 
 console.log(foo instanceof Foo);
 console.log(foo instanceof Bar); // Bar.prototype is undefined -> Foo.prototype (original function)
+
+console.log(Foo.isPrototypeOf(foo)); // false
+console.log(Foo.prototype.isPrototypeOf(foo)); // true
+
+console.log(Object.getPrototypeOf(foo) === Foo.prototype);
+console.log(foo.__proto__ === Foo.prototype);
