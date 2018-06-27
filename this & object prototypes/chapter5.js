@@ -115,3 +115,17 @@ Bar.prototype.myLabel = function() {
 var bar = new Bar("bar", "label bar");
 console.log(bar.myName());
 console.log(bar.myLabel());
+
+// Inspecting "Class" Relationships
+
+function Foo() {}
+var obj = {};
+var Bar = Foo.bind(obj);
+
+var foo = new Foo();
+
+console.log(Foo, Bar);
+console.log(Bar.prototype); // undefined
+
+console.log(foo instanceof Foo);
+console.log(foo instanceof Bar); // Bar.prototype is undefined -> Foo.prototype (original function)
