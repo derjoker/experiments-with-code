@@ -8,7 +8,16 @@ Code example / experiment (You Don't Know JS).
 - `foo.__proto__ === Foo.prototype`
 
 ```js
-function Foo() {}
-var foo = new Foo();
-console.log(foo.__proto__ === Foo.prototype); // true
+function Foo(who) {
+  this.me = who;
+}
+
+Foo.prototype.identify = function() {
+  return "I am " + this.me;
+};
+
+var foo = new Foo("foo");
+console.log(Foo, foo);
+console.log(Foo.prototype, foo.__proto__);
+console.log(Foo.prototype === foo.__proto__); // true
 ```
