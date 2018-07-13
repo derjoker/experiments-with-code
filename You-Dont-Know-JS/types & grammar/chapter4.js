@@ -147,5 +147,11 @@ var a = [42];
 var b = ["043"];
 console.log(a < b); // false
 console.log(42 < 043); // false, 043 = 35, 八进制
+function f() {
+  "use strict";
+  // console.log(42 < 043); // strict mode, SyntaxError
+  console.log(42 < 0o43); // false
+}
+f();
 console.log("42" < "043"); // false, "4" > "0"
 console.log(42 < "043"); // true, 42 < 43
